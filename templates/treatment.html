@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/normalize.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
+
+    <title>Basic Treatment of Hens</title>
+
+    <script src="{{ url_for('static', filename='javascript/main.js') }}" defer></script>
+  </head>
+  <body>
+    <!-- Treatment -->
+    <header class="container">
+      <nav class="nav-bar collapsible">
+        <a class="nav__logo" href="#">
+          <img
+            src="{{ url_for('static', filename='css/images/svg/logo.svg') }}"
+            alt=""
+            oncontextmenu="return false;"
+          />
+        </a>
+
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 50 50"
+          class="nav__toggler toggler icon-large"
+          oncontextmenu="return false;"
+        >
+          <path
+            d="M 0 7.5 L 0 12.5 L 50 12.5 L 50 7.5 Z M 0 22.5 L 0 27.5 L 50 27.5 L 50 22.5 Z M 0 37.5 L 0 42.5 L 50 42.5 L 50 37.5 Z"
+          />
+        </svg>
+
+        <ul class="list nav__list collapsible__content">
+          <li><a class="nav__link" href="{{ url_for('index') }}">Home</a></li>
+          <li>
+            <a class="nav__link" href="{{ url_for('about_us') }}">About</a>
+          </li>
+
+          <li>
+            <a class="nav__link" href="{{ url_for('index') }}#contact">Contact</a>
+          </li>
+          <li>
+            <a class="nav__link" href="{{ url_for('index') }}#faq">FAQs</a>
+          </li>
+
+          <li class="drop-down">
+            <div class="nav__link text-wrap" id="dropdownToggle">
+              More<span class="chevron-bottom text-wrap">&#9660;</span>
+            </div>
+
+            <div class="drop-down__menu">
+              <ul class="list nav__list">
+                <li>
+                  <a class="nav__link" href="{{ url_for('prevention') }}">Prevention&nbsp;Tips</a>
+                </li>
+
+                <li>
+                  <a class="nav__link" href="{{ url_for('learn_more') }}">Learn&nbsp;More</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="treatment card container">
+        <h2>Treatment Options</h2>
+
+        <ul class="list">
+          <li class="treatment__tagline list__style">
+            Basic treatments help maintain the health and well-being of your
+            hens. Always consult a vet for severe or persistent issues.
+          </li>
+        </ul>
+
+        <div class="prevention__content grid grid--1x2">
+          <dl class="prevention__item list">
+            <dt>Parasite Control</dt>
+            <dd class="prevention__data">
+              <dl class="list">
+                <div>
+                  <dt class="list__style">External Parasites (Mites & Lice)</dt>
+                  <dd>
+                    Regular dusting with poultry-safe powders or sprays helps
+                    control mites and lice. Use diatomaceous earth in the coop
+                    and nesting boxes.
+                  </dd>
+                </div>
+                <div>
+                  <dt class="list__style">Internal Parasites (Worms)</dt>
+                  <dd>
+                    Dewormers such as fenbendazole or ivermectin should be used
+                    every 3-6 months. Always follow recommended dosages.
+                  </dd>
+                </div>
+              </dl>
+            </dd>
+          </dl>
+
+          <dl class="prevention__item list">
+            <dt>Wound Care</dt>
+            <dd class="prevention__data">
+              <dl class="list">
+                <div>
+                  <dt class="list__style">Cleaning</dt>
+                  <dd>
+                    For minor wounds, clean with a saline solution or mild
+                    antiseptic.
+                  </dd>
+                </div>
+                <div>
+                  <dt class="list__style">Treatment</dt>
+                  <dd>
+                    Apply a poultry-safe wound spray or antibiotic ointment to
+                    the affected area.
+                  </dd>
+                </div>
+                <div>
+                  <dt class="list__style">Isolation</dt>
+                  <dd>
+                    If needed, isolate the injured hen to prevent pecking by
+                    others.
+                  </dd>
+                </div>
+              </dl>
+            </dd>
+          </dl>
+        </div>
+
+        <div class="prevention__content grid grid--1x2">
+          <dl class="prevention__item list">
+            <dt>Respiratory Issues</dt>
+            <dd class="prevention__data">
+              <dl class="list">
+                <div>
+                  <dt class="list__style">Symptoms</dt>
+                  <dd>
+                    Sneezing, coughing, nasal discharge, or labored breathing
+                    can indicate respiratory infections.
+                  </dd>
+                </div>
+                <div>
+                  <dt class="list__style">Treatment</dt>
+                  <dd>
+                    Use antibiotics if prescribed by a vet. Keep the coop
+                    well-ventilated to prevent respiratory issues.
+                  </dd>
+                </div>
+              </dl>
+            </dd>
+          </dl>
+
+          <dl class="prevention__item list">
+            <dt>Egg Binding</dt>
+            <dd class="prevention__data">
+              <dl class="list">
+                <div>
+                  <dt class="list__style">Symptoms</dt>
+                  <dd>
+                    Hens may appear lethargic, have difficulty walking, or
+                    strain without laying.
+                  </dd>
+                </div>
+                <div>
+                  <dt class="list__style">Treatment</dt>
+                  <dd>
+                    Gently massage the abdomen and offer a warm bath to help the
+                    hen relax. In severe cases, consult a vet.
+                  </dd>
+                </div>
+              </dl>
+            </dd>
+          </dl>
+        </div>
+
+        <div class="prevention__content grid grid--1x2">
+          <dl class="prevention__item list">
+            <dt>Prolapsed Vent</dt>
+            <dd class="prevention__data">
+              <dl class="list">
+                <div>
+                  <dt class="list__style">Symptoms</dt>
+                  <dd>
+                    Prolapse occurs when part of the oviduct is exposed after
+                    laying an egg.
+                  </dd>
+                </div>
+                <div>
+                  <dt class="list__style">Treatment</dt>
+                  <dd>
+                    Gently clean the area, apply a lubricant, and carefully push
+                    the tissue back inside. Isolate the hen and ensure proper
+                    nutrition.
+                  </dd>
+                </div>
+              </dl>
+            </dd>
+          </dl>
+
+          <dl class="prevention__item list">
+            <dt>Molting Support</dt>
+            <dd class="prevention__data">
+              <dl class="list">
+                <div>
+                  <dt class="list__style">Symptoms</dt>
+                  <dd>
+                    Hens lose feathers and may reduce egg-laying during molting.
+                  </dd>
+                </div>
+                <div>
+                  <dt class="list__style">Treatment</dt>
+                  <dd>
+                    Provide extra protein in their diet to support feather
+                    regrowth during this natural process.
+                  </dd>
+                </div>
+              </dl>
+            </dd>
+          </dl>
+        </div>
+
+        <div class="prevention__content grid grid--1x2">
+          <dl class="prevention__item list">
+            <dt>Coccidiosis Prevention</dt>
+            <dd class="prevention__data">
+              <dl class="list">
+                <div>
+                  <dt class="list__style">Symptoms</dt>
+                  <dd>
+                    Diarrhea, lethargy, and weight loss are signs of
+                    coccidiosis.
+                  </dd>
+                </div>
+                <div>
+                  <dt class="list__style">Treatment</dt>
+                  <dd>
+                    Use a medicated feed or add anti-coccidial drugs like
+                    amprolium to water.
+                  </dd>
+                </div>
+              </dl>
+            </dd>
+          </dl>
+
+          <dl class="prevention__item list">
+            <dt>Foot Problems (Bumblefoot)</dt>
+            <dd class="prevention__data">
+              <dl class="list">
+                <div>
+                  <dt class="list__style">Symptoms</dt>
+                  <dd>Swelling or scabs on the bottom of the foot.</dd>
+                </div>
+                <div>
+                  <dt class="list__style">Treatment</dt>
+                  <dd>
+                    Clean the area, apply antiseptic, and bandage the foot. In
+                    severe cases, consult a vet.
+                  </dd>
+                </div>
+              </dl>
+            </dd>
+          </dl>
+        </div>
+
+        <div class="prevention__content grid grid--1x2">
+          <dl class="prevention__item list">
+            <dt>Vaccination</dt>
+            <dd class="prevention__data">
+              <dl class="list">
+                <dt class="list__style">Tip :-</dt>
+                <dd>
+                  Vaccinating helps prevent common diseases like Marek's
+                  disease, Newcastle disease, and Infectious Bronchitis.
+                </dd>
+              </dl>
+            </dd>
+          </dl>
+
+          <dl class="prevention__item list">
+            <dt>Nutritional Supplement</dt>
+            <dd class="prevention__data">
+              <dl class="list">
+                <dt class="list__style">Tip :-</dt>
+                <dd>
+                  Provide grit and calcium supplements to promote digestion and
+                  strong eggshells. Vitamins can boost the immune system.
+                </dd>
+              </dl>
+            </dd>
+          </dl>
+        </div>
+
+        <div class="treat">
+          <article>
+            <p>
+              Detect which disease is affecting your hens to ensure proper
+              treatment. Take the necessary steps by identifying symptoms and
+              applying the right solution.
+            </p>
+          </article>
+
+          <button
+            class="btn btn--log-in"
+            onclick="window.location.href='{{ url_for('symptom_form') }}'"
+          >
+            Get Started
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer  -->
+    <footer class="footer container">
+      <div class="footer__nav">
+        <img
+          class="footer__logo"
+          src="{{ url_for('static', filename='css/images/svg/logo.svg') }}"
+          alt=""
+          oncontextmenu="return false;"
+        />
+
+        <ul class="list footer__list">
+          <li class="footer__item">
+            <a href="{{ url_for('about_us') }}">About</a>
+          </li>
+          <li class="footer__item"><a href="#contact">Contact us</a></li>
+          <li class="footer__item"><a href="#faq">FAQs</a></li>
+        </ul>
+
+        <div class="social-media">
+          <a href="">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 30 30"
+              class="icon-medium"
+              oncontextmenu="return false;"
+            >
+              <path
+                d="M15,3C8.373,3,3,8.373,3,15c0,6.016,4.432,10.984,10.206,11.852V18.18h-2.969v-3.154h2.969v-2.099c0-3.475,1.693-5,4.581-5c1.383,0,2.115,0.103,2.461,0.149v2.753h-1.97c-1.226,0-1.654,1.163-1.654,2.473v1.724h3.593L19.73,18.18h-3.106v8.697C22.481,26.083,27,21.075,27,15C27,8.373,21.627,3,15,3z"
+              />
+            </svg>
+          </a>
+
+          <a href="">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 30 30"
+              class="icon-medium"
+              oncontextmenu="return false;"
+            >
+              <path
+                d="M26.37,26l-8.795-12.822l0.015,0.012L25.52,4h-2.65l-6.46,7.48L11.28,4H4.33l8.211,11.971L12.54,15.97L3.88,26h2.65 l7.182-8.322L19.42,26H26.37z M10.23,6l12.34,18h-2.1L8.12,6H10.23z"
+              />
+            </svg>
+          </a>
+
+          <a href="">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 50 50"
+              class="icon-medium"
+              oncontextmenu="return false;"
+            >
+              <path
+                d="M41,4H9C6.24,4,4,6.24,4,9v32c0,2.76,2.24,5,5,5h32c2.76,0,5-2.24,5-5V9C46,6.24,43.76,4,41,4z M17,20v19h-6V20H17z M11,14.47c0-1.4,1.2-2.47,3-2.47s2.93,1.07,3,2.47c0,1.4-1.12,2.53-3,2.53C12.2,17,11,15.87,11,14.47z M39,39h-6c0,0,0-9.26,0-10 c0-2-1-4-3.5-4.04h-0.08C27,24.96,26,27.02,26,29c0,0.91,0,10,0,10h-6V20h6v2.56c0,0,1.93-2.56,5.81-2.56 c3.97,0,7.19,2.73,7.19,8.26V39z"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="copyright grid grid--1x2 grid--align-Y grid--align-X">
+        <p class="copyright__content">
+          &copy;&#50;&#48;&#50;&#52; symptochecker.com. All rights reserved.
+        </p>
+
+        <ul class="list">
+          <li class="footer__item">
+            <a href="{{ url_for('privacy_and_cookies_policy') }}">Privacy Policy</a>
+          </li>
+
+          <li class="footer__item">
+            <a href="{{ url_for('tc') }}">Terms and Conditions</a>
+          </li>
+
+          <li class="footer__item">
+            <a href="{{ url_for('privacy_and_cookies_policy') }}#cookie-policy">Cookie Policy</a>
+          </li>
+        </ul>
+      </div>
+    </footer>
+  </body>
+</html>

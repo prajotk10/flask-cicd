@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/normalize.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
+
+    <title>Privacy Policy</title>
+
+    <script src="{{ url_for('static', filename='javascript/main.js') }}" defer></script>
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <header class="container">
+      <nav class="nav-bar collapsible">
+        <img
+          src="{{ url_for('static', filename='css/images/svg/logo.svg') }}"
+          alt=""
+          oncontextmenu="return false;"
+        />
+
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 50 50"
+          class="nav__toggler toggler icon-large"
+          oncontextmenu="return false;"
+        >
+          <path
+            d="M 0 7.5 L 0 12.5 L 50 12.5 L 50 7.5 Z M 0 22.5 L 0 27.5 L 50 27.5 L 50 22.5 Z M 0 37.5 L 0 42.5 L 50 42.5 L 50 37.5 Z"
+          />
+        </svg>
+
+        <ul class="list nav__list collapsible__content">
+          <li>
+            <a class="nav__link" href="{{ url_for('index') }}">Home</a>
+          </li>
+          <li>
+            <a class="nav__link" href="{{ url_for('about_us') }}">About</a>
+          </li>
+          <li><a class="nav__link" href="#contact">Contact</a></li>
+          <li><a class="nav__link" href="#faq">FAQs</a></li>
+
+          <li class="drop-down">
+            <div id="dropdownToggle" class="nav__link text-wrap">
+              More<span class="chevron-bottom text-wrap">&#9660;</span>
+            </div>
+
+            <div class="drop-down__menu">
+              <ul class="list nav__list">
+                <li>
+                  <a
+                    class="nav__link"
+                    href="{{ url_for('basic_prevention') }}"
+                    >Prevention&nbsp;Tips</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="nav__link"
+                    href="{{ url_for('basic_treatment') }}"
+                    >Treatment&nbsp;Options</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Privacy Policy -->
+    <section class="card container">
+      <h1>Privacy Policy</h1>
+      <p><strong>Effective Date: 2024/10/04</strong></p>
+
+      <ol class="privacy-policy__list">
+        <li class="privacy-policy__list-item">
+          <strong>Introduction</strong>
+          <p>
+            We respect your privacy and are committed to protecting any
+            information you share with us through our website. This Privacy
+            Policy outlines what information we collect, how we use it, and your
+            rights concerning your data. By using our website, you agree to this
+            policy.
+          </p>
+        </li>
+
+        <li class="privacy-policy__list-item">
+          <strong>Information We Collect</strong>
+          <p>
+            Our website does not collect any personally identifiable information
+            (PII) from users such as names, email addresses, or login details.
+          </p>
+
+          <p>However, we may collect and process certain non-personal data:</p>
+
+          <ol class="list">
+            <li class="list__style">
+              <strong>Machine Learning Inputs:</strong> Any data you provide to
+              our disease detection tool (such as fowl disease symptoms) may be
+              processed by our machine learning model. This data is not stored
+              or linked to your identity.
+            </li>
+
+            <li class="list__style">
+              <strong>Cookies:</strong> Our website may use cookies to improve
+              your browsing experience. These are small files stored on your
+              device that track your preferences and usage patterns.
+            </li>
+
+            <li class="list__style">
+              <strong>Analytics:</strong> We may use third-party services, like
+              Google Analytics, to analyze website traffic and usage patterns.
+              This data is anonymous and does not personally identify you.
+            </li>
+
+            <li class="list__style">
+              <strong>Google Fonts:</strong> We use Google Fonts to enhance the
+              visual appearance of our website. When you load a page, your
+              browser requests these fonts from Google’s servers, and during
+              this process, your IP address may be collected by Google. For more
+              information on how Google handles data, please refer to
+              <a
+                class="link--underline text-wrap"
+                href="https://policies.google.com/privacy"
+                target="_blank"
+                >Google's Privacy Policy</a
+              >.
+            </li>
+
+            <li class="list__style">
+              <strong>Map Service:</strong> We use third-party map services
+              (e.g., Google Maps) to help users locate our quarters. When
+              accessing a map, your IP address and potentially your geolocation
+              data may be collected by the map service provider. For details on
+              how they manage data, please review
+              <a
+                class="link--underline text-wrap"
+                href="https://policies.google.com/privacy"
+                target="_blank"
+                >Google Maps Privacy Policy</a
+              >
+              or the applicable privacy policy of the map service used.
+            </li>
+          </ol>
+        </li>
+
+        <li class="privacy-policy__list-item">
+          <strong>Use of Information</strong>
+          <p>We use the information collected to:</p>
+          <ol class="list">
+            <li class="list__style">
+              Improve the performance of our machine learning models.
+            </li>
+            <li class="list__style">
+              Analyze website usage to enhance user experience.
+            </li>
+            <li class="list__style">
+              Ensure website security and proper functioning.
+            </li>
+            <li class="list__style">
+              Provide location information and directions to our quarters.
+            </li>
+          </ol>
+        </li>
+
+        <li class="privacy-policy__list-item">
+          <strong>Third-Party Services</strong>
+          <p>
+            We may use third-party tools to collect, monitor, and analyze data
+            on the use of our website. These services may use cookies or similar
+            technologies:
+          </p>
+
+          <ol class="list">
+            <li class="list__style">
+              <strong>Google Fonts:</strong> Your browser may download fonts
+              from Google's servers, and during this process, certain data like
+              your IP address may be collected.
+            </li>
+
+            <li class="list__style">
+              <strong>Google Maps:</strong> If you interact with the embedded
+              Google Map on our website, your IP address and location data (if
+              enabled on your device) may be collected by Google. This helps
+              provide you with accurate directions. For more details, please
+              refer to
+              <a
+                class="link--underline text-wrap"
+                href="https://policies.google.com/privacy"
+                target="_blank"
+                >Google's Privacy Policy</a
+              >.
+            </li>
+
+            <li class="list__style">
+              <strong>Google Analytics:</strong> This service helps us track
+              user activity and website performance. It collects
+              non-identifiable information like IP addresses, browser types, and
+              pages visited. You can opt out by adjusting your browser settings
+              or by using the Google Analytics opt-out browser add-on.
+            </li>
+          </ol>
+
+          <p>
+            Please review their respective privacy policies for more information
+            on how they handle your data.
+          </p>
+        </li>
+
+        <li class="privacy-policy__list-item">
+          <strong>Cookies</strong>
+          <p>
+            Cookies are used to remember user preferences and ensure a smooth
+            user experience. You can choose to disable cookies via your browser
+            settings, though this may affect your ability to fully interact with
+            the website.
+          </p>
+        </li>
+
+        <li class="privacy-policy__list-item">
+          <strong>Data Security</strong>
+          <p>
+            We take reasonable precautions to protect any information shared
+            with us. However, no method of transmission over the Internet is
+            100% secure, and we cannot guarantee absolute security of your data.
+          </p>
+        </li>
+
+        <li class="privacy-policy__list-item">
+          <strong>Links to External Websites</strong>
+          <p>
+            Our website may contain links to third-party websites, including the
+            map service. We are not responsible for the content or privacy
+            practices of these external sites. We recommend reviewing their
+            privacy policies before sharing any personal data with them.
+          </p>
+        </li>
+
+        <li class="privacy-policy__list-item">
+          <strong>Changes to This Privacy Policy</strong>
+          <p>
+            We reserve the right to update or modify this Privacy Policy at any
+            time. Any changes will be posted on this page with an updated
+            effective date. Your continued use of the website after changes
+            indicates your acceptance of the new terms.
+          </p>
+        </li>
+
+        <li class="privacy-policy__list-item">
+          <strong>Contact Us</strong>
+          <p>
+            If you have any questions or concerns regarding this Privacy Policy
+            or our data practices, please contact us via our
+            <a class="link--underline text-wrap" href="#contact">contact page</a>.
+          </p>
+        </li>
+      </ol>
+    </section>
+
+    <!-- Footer  -->
+<footer class="footer container">
+  <div class="footer__nav">
+    <img
+      class="footer__logo"
+      src="{{ url_for('static', filename='css/images/svg/logo.svg') }}"
+      alt=""
+      oncontextmenu="return false;"
+    />
+
+    <ul class="list footer__list">
+      <li class="footer__item">
+        <a href="{{ url_for('about_us') }}">About</a>
+      </li>
+      <li class="footer__item"><a href="#contact">Contact us</a></li>
+      <li class="footer__item"><a href="#faq">FAQs</a></li>
+      <li class="footer__item">
+        <a href="{{ url_for('learn_more') }}">Learn More</a>
+      </li>
+    </ul>
+
+    <div class="social-media">
+      <a href="">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 30 30"
+          class="icon-medium"
+          oncontextmenu="return false;"
+        >
+          <path
+            d="M15,3C8.373,3,3,8.373,3,15c0,6.016,4.432,10.984,10.206,11.852V18.18h-2.969v-3.154h2.969v-2.099c0-3.475,1.693-5,4.581-5c1.383,0,2.115,0.103,2.461,0.149v2.753h-1.97c-1.226,0-1.654,1.163-1.654,2.473v1.724h3.593L19.73,18.18h-3.106v8.697C22.481,26.083,27,21.075,27,15C27,8.373,21.627,3,15,3z"
+          />
+        </svg>
+      </a>
+
+      <a href="">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 30 30"
+          class="icon-medium"
+          oncontextmenu="return false;"
+        >
+          <path
+            d="M26.37,26l-8.795-12.822l0.015,0.012L25.52,4h-2.65l-6.46,7.48L11.28,4H4.33l8.211,11.971L12.54,15.97L3.88,26h2.65 l7.182-8.322L19.42,26H26.37z M10.23,6l12.34,18h-2.1L8.12,6H10.23z"
+          />
+        </svg>
+      </a>
+
+      <a href="">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 50 50"
+          class="icon-medium"
+          oncontextmenu="return false;"
+        >
+          <path
+            d="M41,4H9C6.24,4,4,6.24,4,9v32c0,2.76,2.24,5,5,5h32c2.76,0,5-2.24,5-5V9C46,6.24,43.76,4,41,4z M17,20v19h-6V20H17z M11,14.47c0-1.4,1.2-2.47,3-2.47s2.93,1.07,3,2.47c0,1.4-1.12,2.53-3,2.53C12.2,17,11,15.87,11,14.47z M39,39h-6c0,0,0-9.26,0-10 c0-2-1-4-3.5-4.04h-0.08C27,24.96,26,27.02,26,29c0,0.91,0,10,0,10h-6V20h6v2.56c0,0,1.93-2.56,5.81-2.56 c3.97,0,7.19,2.73,7.19,8.26V39z"
+          />
+        </svg>
+      </a>
+    </div>
+  </div>
+
+  <div class="copyright grid grid--1x2 grid--align-Y grid--align-X">
+    <p class="copyright__content">
+      &copy;&#50;&#48;&#50;&#52; symptochecker.com. All rights reserved.
+    </p>
+
+    <ul class="list">
+      <li class="footer__item">
+        <a class="link--underline" href="{{ url_for('tc') }}">Terms and Conditions</a>
+      </li>
+    </ul>
+  </div>
+</footer>
+</body>
+</html>

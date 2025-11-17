@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/normalize.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
+
+    <title>Sign up</title>
+
+    <script src="{{ url_for('static', filename='javascript/main.js') }}" defer></script>
+  </head>
+  <body>
+    <div class="sign-up-container grid">
+      <img
+        class="logo"
+        src="{{ url_for('static', filename='css/images/svg/logo.svg') }}"
+        alt=""
+        oncontextmenu="return false;"
+      />
+
+      <div class="sign-up">
+        <section>
+          <h3>Sign Up</h3>
+
+          <article>
+            <p class="sign-up__tagline">
+              We are building the website to detect and cure diseases in hens.
+            </p>
+          </article>
+        </section>
+
+        <form action="">
+          <div class="form-details">
+            <label for="name">Name*</label>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              minlength="5"
+              maxlength="16"
+              autofocus
+              required
+            />
+
+            <label for="email">Email*</label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              minlength="5"
+              maxlength="320"
+              required
+            />
+
+            <label for="password">Password*&nbsp;</label>
+            <input
+              id="password"
+              type="password"
+              name="password"
+              minlength="8"
+              maxlength="64"
+              autocomplete="off"
+              required
+            />
+
+            <div class="toggler">
+              <input id="togglePassword" type="checkbox" />&nbsp;
+              <label for="togglePassword">Show&nbsp;Password</label>
+            </div>
+          </div>
+
+          <button class="btn btn--log-in btn--block" type="submit">
+            Log in
+          </button>
+        </form>
+
+        <button class="btn btn--primary btn--block">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            class="icon-small"
+          >
+            <path
+              d="M12.545,10.239v3.821h5.445c-0.712,2.315-2.647,3.972-5.445,3.972c-3.332,0-6.033-2.701-6.033-6.032 s2.701-6.032,6.033-6.032c1.498,0,2.866,0.549,3.921,1.453l2.814-2.814C17.503,2.988,15.139,2,12.545,2 C7.021,2,2.543,6.477,2.543,12s4.478,10,10.002,10c8.396,0,10.249-7.85,9.426-11.748L12.545,10.239z"
+            />
+          </svg>
+          &nbsp; Sign up with Google
+        </button>
+
+        <p class="sign-up__link">
+          Already have an account?
+          <a class="link--underline" href="{{ url_for('log_in') }}">Log in</a>
+        </p>
+      </div>
+
+      <p class="sign-up__copyright">&copy;SymptoChecker 2024</p>
+    </div>
+
+    <script>
+      const togglePassword = document.querySelector("#togglePassword");
+      const password = document.querySelector("#password");
+
+      togglePassword.addEventListener("click", function () {
+        const type =
+          password.getAttribute("type") === "password" ? "text" : "password";
+        password.setAttribute("type", type);
+      });
+    </script>
+  </body>
+</html>

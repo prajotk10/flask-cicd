@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Predict diseases based on symptoms using our advanced machine learning models. Input your symptoms and get accurate health predictions instantly."
+    />
+    <meta
+      name="keywords"
+      content="disease detection, machine learning, symptom checker, health diagnosis, disease prediction"
+    />
+    <meta name="author" content="SymptoChecker" />
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/normalize.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <title>symptochecker.com</title>
+
+    <script src="{{ url_for('static', filename='javascript/main.js') }}" defer></script>
+  </head>
+
+  <body>
+    <!-- Navigation Bar -->
+    <header class="container">
+      <nav class="nav-bar collapsible">
+        <a class="nav__logo" href="#">
+          <img
+            src="{{ url_for('static', filename='css/images/svg/logo.svg') }}"
+            alt=""
+            oncontextmenu="return false;"
+          />
+        </a>
+
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 50 50"
+          class="nav__toggler toggler icon-large"
+          oncontextmenu="return false;"
+        >
+          <path
+            d="M 0 7.5 L 0 12.5 L 50 12.5 L 50 7.5 Z M 0 22.5 L 0 27.5 L 50 27.5 L 50 22.5 Z M 0 37.5 L 0 42.5 L 50 42.5 L 50 37.5 Z"
+          />
+        </svg>
+
+        <ul class="list nav__list collapsible__content">
+          <li>
+            <a class="nav__link" href="{{ url_for('about_us') }}">About</a>
+          </li>
+          <li><a class="nav__link" href="#contact">Contact</a></li>
+          <li><a class="nav__link" href="#faq">FAQs</a></li>
+
+          <li class="drop-down">
+            <div class="nav__link text-wrap" id="dropdownToggle">
+              More<span class="chevron-bottom text-wrap">&#9660;</span>
+            </div>
+
+            <div class="drop-down__menu">
+              <ul class="list nav__list">
+                <li>
+                  <a
+                    class="nav__link"
+                    href="{{ url_for('prevention') }}"
+                    >Prevention&nbsp;Tips</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="nav__link"
+                    href="{{ url_for('treatment') }}"
+                    >Treatment&nbsp;Options</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Hero -->
+    <main>
+      <section class="hero container grid grid--1x2 grid--align-Y">
+        <div class="hero__content">
+          <h1>Detect Fowl Diseases with Ease</h1>
+
+          <p class="hero__tagline">
+            Diagnose and treat hen diseases effortlessly with our innovative
+            <span class="text-wrap">web-based</span> symptom detection system.
+          </p>
+
+          <a href="{{ url_for('symptom_form') }}">
+            <button class="btn btn--log-in cta-btn">Get Started</button>
+          </a>
+           </button>
+
+          <button
+            class="btn btn--secondary .text-wrap"
+            onclick="window.location.href='{{ url_for('learn_more') }}'"
+          >
+            Learn More <span class="chevron-right-translate-X">&#10095;</span>
+          </button>
+        </div>
+
+        <img
+          src="{{ url_for('static', filename='css/images/svg/home_background.svg') }}"
+          alt=""
+          class="hero__image"
+          oncontextmenu="return false;"
+        />
+      </section>
+    </main>
+
+    <!-- Widget -->
+    <div class="tab container card grid grid--1x2 grid--align-Y">
+      <div class="tab__img">
+        <div class="tab__img-wrapper">
+          <img
+            src="{{ url_for('static', filename='css/images/svg/easy_symtoms_checker.svg') }}"
+            alt="Symptom Checker"
+            class="image-1"
+            oncontextmenu="return false;"
+          />
+
+          <img
+            src="{{ url_for('static', filename='css/images/svg/comprehesive_database.svg') }}"
+            alt="Comprehensive Database"
+            class="image-2"
+            oncontextmenu="return false;"
+          />
+
+          <img
+            src="{{ url_for('static', filename='css/images/svg/remedy_suggestion2.svg') }}"
+            alt="Remedy Suggestions"
+            class="image-3"
+            oncontextmenu="return false;"
+          />
+        </div>
+      </div>
+
+      <div class="tab__content">
+        <input id="tab-1" type="radio" name="tabs" checked />
+        <label
+          for="tab-1"
+          data-aos-anchor-placement="top-bottom"
+          data-aos-duration="1000"
+          data-aos="fade-left"
+        >
+          <h4>Symptom Checker</h4>
+
+          <p>
+            Easily identify diseases based on symptoms and receive personalized
+            recommendations
+          </p>
+        </label>
+
+        <input id="tab-2" type="radio" name="tabs" />
+        <label
+          for="tab-2"
+          data-aos-anchor-placement="top-bottom"
+          data-aos-duration="1400"
+          data-aos="fade-left"
+        >
+          <h4>Comprehensive Database</h4>
+
+          <p>
+            Access a vast collection of hen diseases and their corresponding
+            remedies.
+          </p>
+        </label>
+
+        <input id="tab-3" type="radio" name="tabs" />
+        <label
+          for="tab-3"
+          data-aos-anchor-placement="top-bottom"
+          data-aos-duration="1800"
+          data-aos="fade-left"
+        >
+          <h4>Remedy Suggestions</h4>
+
+          <p>
+            Receive effective remedies tailored to the specific disease
+            affecting your hens.
+          </p>
+        </label>
+      </div>
+    </div>
+
+    <!-- Cards -->
+    <div
+      class="polygon-skewed-right container"
+      data-aos="fade-right"
+      data-aos-duration="1000"
+      data-aos-anchor-placement="top-bottom"
+    >
+      <div class="card grid grid--1x2 grid--align-X grid--align-Y">
+        <div class="card__content">
+          <section>
+            <h2>Simplify Disease Identification with Easy Symptom Input</h2>
+
+            <p>
+              Our web platform allows you to quickly identify diseases in hens
+              by simply entering their symptoms. Get instant results and take
+              appropriate action
+            </p>
+
+            <ul class="list">
+              <li class="list__style">Instant Disease</li>
+              <li class="list__style">Identification</li>
+              <li class="list__style">Easy Remedy Suggestion</li>
+            </ul>
+          </section>
+        </div>
+
+        <img
+          src="{{ url_for('static', filename='css/images/svg/disease_simplyfy.svg') }}"
+          alt="Easy Symptomp Input"
+          class="card__image"
+          oncontextmenu="return false;"
+        />
+      </div>
+    </div>
+
+    <div
+      class="polygon-skewed-left container"
+      data-aos="fade-left"
+      data-aos-duration="1000"
+      data-aos-anchor-placement="top-bottom"
+    >
+      <div class="card grid grid--1x2 grid--align-X grid--align-Y">
+        <img
+          src="{{ url_for('static', filename='css/images/svg/improve_productivity.svg') }}"
+          alt="improve productivity of poultry owners"
+          class="card__image"
+          oncontextmenu="return false;"
+        />
+
+        <div class="card__content">
+          <section>
+            <h2>Improving Hen Health and Productivity for Poultry Owners</h2>
+
+            <p>
+              Our web platform helps poultry owners detect diseases by analyzing
+              symptoms, providing remedies, and saving on veterinary bills
+            </p>
+
+            <ul class="list">
+              <li class="list__style">
+                Early disease detection for healthier hens
+              </li>
+
+              <li class="list__style">
+                Increased productivity through timely disease management
+              </li>
+
+              <li class="list__style">
+                Save on veterinary bills with proactive disease prevention
+              </li>
+            </ul>
+          </section>
+        </div>
+      </div>
+    </div>
+
+    <!-- Call-Out -->
+  <section      
+    class="call-out container card"
+    data-aos="fade-up"
+    data-aos-duration="1000"
+    data-aos-anchor-placement="top-bottom"
+  >
+    <h2>Detect and treat hen diseases</h2>
+
+    <p class="call-out__tag-line">
+      Use our symptom checker to identify diseases in your poultry and get
+      recommended remedies.
+    </p>
+
+    <button
+      class="btn btn--log-in .text-wrap"
+      onclick="window.location.href='{{ url_for('symptom_form') }}'"
+    >
+      Get Started
+    </button>
+  </section>
+
+    <!-- User Guide -->
+<div class="guide container card">
+  <section class="guide__header">
+    <article class="guide__tagline">
+      <p>
+        Detection has become increasingly important in today's world, as
+        technology advances and new challenges arise.
+      </p>
+    </article>
+
+    <h2>Simple Steps to Detect and Treat Hen's Diseases</h2>
+
+    <article class="guide__tagline">
+      <p>
+        Our website allows you to easily input symptoms and receive
+        information on diseases and remedies for your hens.
+      </p>
+    </article>
+  </section>
+
+  <div class="guide__content grid grid--1x3">
+    <div class="guide__item" data-aos="flip-left" data-aos-duration="1000">
+      <img
+        src="{{ url_for('static', filename='css/images/svg/input_symptoms.svg') }}"
+        alt=""
+        class="guide__img"
+        oncontextmenu="return false;"
+      />
+
+      <section class="guide-item__heading">
+        <h4>Input Symptoms</h4>
+      </section>
+
+      <article>Enter the symptoms your hens are experiencing.</article>
+    </div>
+
+    <div class="guide__item" data-aos="flip-left" data-aos-duration="1000">
+      <img
+        src="{{ url_for('static', filename='css/images/svg/recive_info.svg') }}"
+        alt=""
+        class="guide__img"
+        oncontextmenu="return false;"
+      />
+
+      <section class="guide-item__heading">
+        <h4>Receive Information</h4>
+      </section>
+
+      <article>
+        Get detailed information on the detected disease and suggested
+        remedies.
+      </article>
+    </div>
+
+    <div class="guide__item" data-aos="flip-left" data-aos-duration="1000">
+      <img
+        src="{{ url_for('static', filename='css/images/svg/take_action.svg') }}"
+        alt=""
+        class="guide__img"
+        oncontextmenu="return false;"
+      />
+
+      <section class="guide-item__heading">
+        <h4>Take Appropriate Action</h4>
+      </section>
+
+      <article>
+        Follow the recommended remedies to treat your hens effectively.
+      </article>
+    </div>
+  </div>
+
+  <div class="guide__footer">
+    <button
+      class="btn btn--log-in .text-wrap"
+      onclick="window.location.href='{{ url_for('symptom_form') }}'"
+    >
+      Get Started
+    </button>
+    <button
+      class="btn btn--secondary .text-wrap"
+      onclick="window.location.href='{{ url_for('learn_more') }}'"
+    >
+      Learn More <span class="chevron-right-translate-X">&#10095;</span>
+    </button>
+  </div>
+</div>
+
+<!-- Find Answers and Questions -->
+<section id="faq" class="faq container card">
+  <header>
+    <h2>FAQs</h2>
+
+    <p class="faq__tagline">
+      Find answers to common questions about our disease detection process,
+      accuracy, and remedies provided.
+    </p>
+  </header>
+
+  <div class="faq__card collapsible collapsible--expanded">
+    <header class="faq__card-header">
+      <h5 class="faq__card-heading">How accurate is it?</h5>
+
+      <div class="icon-container toggler toggler">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 -960 960 960"
+          class="icon-small collapsible__close"
+          oncontextmenu="return false;"
+        >
+          <path
+            d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"
+          />
+        </svg>
+      </div>
+    </header>
+
+    <p class="collapsible__content">
+      Our disease detection process is highly accurate, utilizing advanced
+      algorithms to analyze symptoms and provide accurate results. However,
+      it is always recommended to consult a veterinarian for a professional
+      diagnosis.
+    </p>
+  </div>
+
+  <div class="faq__card collapsible">
+    <header class="faq__card-header">
+      <h5 class="faq__card-heading">What remedies are provided?</h5>
+
+      <div class="icon-container toggler">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 -960 960 960"
+          class="icon-small collapsible__close"
+          oncontextmenu="return false;"
+        >
+          <path
+            d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"
+          />
+        </svg>
+      </div>
+    </header>
+
+    <p class="collapsible__content">
+      We provide a range of remedies for various hen diseases, including
+      natural remedies and medication recommendations. The specific remedies
+      suggested will depend on the disease detected.
+    </p>
+  </div>
+
+  <div class="faq__card collapsible">
+    <header class="faq__card-header">
+      <h5 class="faq__card-heading">Can I trust the results?</h5>
+
+      <div class="icon-container toggler">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 -960 960 960"
+          class="icon-small collapsible__close"
+          oncontextmenu="return false;"
+        >
+          <path
+            d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"
+          />
+        </svg>
+      </div>
+    </header>
+
+    <p class="collapsible__content">
+      While our disease detection process is accurate, it is important to
+      note that it is not a substitute for professional veterinary advice.
+      We always recommend consulting a veterinarian for a thorough
+      examination and diagnosis.
+    </p>
+  </div>
+
+  <div class="faq__card collapsible">
+    <header class="faq__card-header">
+      <h5 class="faq__card-heading">How can I use the web?</h5>
+
+      <div class="icon-container toggler">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 -960 960 960"
+          class="icon-small collapsible__close"
+          oncontextmenu="return false;"
+        >
+          <path
+            d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"
+          />
+        </svg>
+      </div>
+    </header>
+
+    <p class="collapsible__content">
+      Using our web is simple. Just enter the symptoms of your hen, and our
+      system will analyze the data to detect potential diseases and provide
+      corresponding remedies.
+    </p>
+  </div>
+
+  <div class="faq__card collapsible">
+    <header class="faq__card-header">
+      <h5 class="faq__card-heading">Is it free to use?</h5>
+
+      <div class="icon-container toggler">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 -960 960 960"
+          class="icon-small collapsible__close"
+          oncontextmenu="return false;"
+        >
+          <path
+            d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"
+          />
+        </svg>
+      </div>
+    </header>
+
+    <p class="collapsible__content">
+      Yes, our disease detection web is completely free to use. We believe
+      in providing accessible and helpful resources to poultry owners and
+      anyone who has hens.
+    </p>
+  </div>
+
+  <footer class="faq__footer">
+    <h4>Still have questions?</h4>
+
+    <p>Contact us for further assistance.</p>
+
+    <button
+      class="btn btn--secondary .text-wrap"
+      onclick="window.location.href='{{ url_for('index') }}#contact'"
+    >
+      Contact
+    </button>
+  </footer>
+</section>
+
+<!-- Customer Review -->
+<section class="testimonial container card">
+  <h2>Customer Testimonials</h2>
+
+  <p>Read what our satisfied poultry owners have to say.</p>
+
+  <div class="testimonial__content grid grid--1x3">
+    <div
+      class="testimonial__item"
+      data-aos="fade-right"
+      data-aos-duration="1000"
+    >
+      <div class="rattings">
+        <p class="rattings">&#9733;</p>
+        <p class="rattings">&#9733;</p>
+        <p class="rattings">&#9733;</p>
+        <p class="rattings">&#9733;</p>
+        <p class="rattings">&#9733;</p>
+      </div>
+
+      <article>
+        <blockquote>
+          <p class="quote">
+            This service saved my hens from a deadly disease.
+          </p>
+        </blockquote>
+      </article>
+
+      <div class="avatar">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 -960 960 960"
+          oncontextmenu="return false;"
+        >
+          <path
+            d="M480-484.07q-69.59 0-118.86-49.27-49.27-49.27-49.27-118.86 0-69.58 49.27-118.74 49.27-49.15 118.86-49.15t118.86 49.15q49.27 49.16 49.27 118.74 0 69.59-49.27 118.86-49.27 49.27-118.86 49.27ZM151.87-147.8v-120.61q0-36.23 18.74-66.59 18.74-30.37 49.8-46.35 62.72-31.24 127.67-46.98 64.94-15.74 131.92-15.74 67.43 0 132.39 15.62 64.96 15.62 127.2 46.86 31.06 15.95 49.8 46.25t18.74 66.91v120.63H151.87Z"
+          />
+        </svg>
+      </div>
+
+      <div>
+        <p class="user-name">john doe</p>
+        <p class="user-post">polutry owner</p>
+      </div>
+    </div>
+
+    <div
+      class="testimonial__item"
+      data-aos="zoom-in-up"
+      data-aos-duration="1000"
+    >
+      <div class="rattings">
+        <p class="rattings">&#9733;</p>
+        <p class="rattings">&#9733;</p>
+        <p class="rattings">&#9733;</p>
+        <p class="rattings">&#9733;</p>
+        <p class="rattings">&#9733;</p>
+      </div>
+
+      <article>
+        <blockquote>
+          <p class="quote">
+            I highly recommend this website to all poultry owners.
+          </p>
+        </blockquote>
+      </article>
+
+          <div class="avatar">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 -960 960 960"
+              oncontextmenu="return false;"
+            >
+              <path
+                d="M480-484.07q-69.59 0-118.86-49.27-49.27-49.27-49.27-118.86 0-69.58 49.27-118.74 49.27-49.15 118.86-49.15t118.86 49.15q49.27 49.16 49.27 118.74 0 69.59-49.27 118.86-49.27 49.27-118.86 49.27ZM151.87-147.8v-120.61q0-36.23 18.74-66.59 18.74-30.37 49.8-46.35 62.72-31.24 127.67-46.98 64.94-15.74 131.92-15.74 67.43 0 132.39 15.62 64.96 15.62 127.2 46.86 31.06 15.95 49.8 46.25t18.74 66.91v120.63H151.87Z"
+              />
+            </svg>
+          </div>
+
+          <div>
+            <p class="user-name">jane smith</p>
+            <p class="user-post">poultry farm manager</p>
+          </div>
+        </div>
+        <div
+          class="testimonial__item"
+          data-aos="fade-left"
+          data-aos-duration="1400"
+        >
+          <div class="rattings">
+            <p class="rattings">&#9733;</p>
+            <p class="rattings">&#9733;</p>
+            <p class="rattings">&#9733;</p>
+            <p class="rattings">&#9733;</p>
+            <p class="rattings">&#9733;</p>
+          </div>
+
+          <article>
+            <blockquote>
+              <p class="quote">
+                Thanks to this website, our hens are healthier than ever.
+              </p>
+            </blockquote>
+          </article>
+
+          <div class="avatar">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 -960 960 960"
+              oncontextmenu="return false;"
+            >
+              <path
+                d="M480-484.07q-69.59 0-118.86-49.27-49.27-49.27-49.27-118.86 0-69.58 49.27-118.74 49.27-49.15 118.86-49.15t118.86 49.15q49.27 49.16 49.27 118.74 0 69.59-49.27 118.86-49.27 49.27-118.86 49.27ZM151.87-147.8v-120.61q0-36.23 18.74-66.59 18.74-30.37 49.8-46.35 62.72-31.24 127.67-46.98 64.94-15.74 131.92-15.74 67.43 0 132.39 15.62 64.96 15.62 127.2 46.86 31.06 15.95 49.8 46.25t18.74 66.91v120.63H151.87Z"
+              />
+            </svg>
+          </div>
+
+          <div>
+            <p class="user-name">michael johnson</p>
+            <p class="user-post">hen owner</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section
+      class="cta container grid grid--1x2 grid--align-Y grid--align-X"
+      data-aos-anchor-placement="center-bottom"
+      data-aos-duration="1400"
+      data-aos="zoom-in"
+      data-aos-anchor-placement="top-bottom"
+    >
+      <div class="cta__content">
+        <header><h2>Stay Updated on Poultry Health</h2></header>
+
+        <p>
+          Subscribe to receive updates on poultry health, new diseases, and
+          remedies.
+        </p>
+
+        <div class="cta__call">
+          <input
+            type="text"
+            name="email"
+            placeholder="Enter email..."
+            autocomplete="on"
+            class="cta__input"
+          />
+
+          <a href="{{ url_for('sign_up') }}">
+            <button class="btn btn--primary btn--block cta__button .text-wrap" h>
+            Sign up
+            </button>
+          </a>
+        </div>
+
+        <p class="cta__terms">
+          By clicking Sign Up, you confirm that you agree with our Terms and
+          Conditions.
+        </p>
+      </div>
+
+      <img
+        src="{{ url_for('static', filename='css/images/svg/stay_connected.svg') }}"
+        alt=""
+        class="cta__img"
+        oncontextmenu="return false;"
+      />
+    </section>
+
+    <!-- Contact us -->
+    <div id="contact" class="contact container card">
+      <section class="contact__header">
+        <h2>Contact Support</h2>
+
+        <p>For support or more information, please reach out to us.</p>
+      </section>
+
+      <div class="contact__content grid grid--1x2 grid--align-Y">
+        <div class="contact__items">
+          <div
+            class="contact__item"
+            data-aos="fade-right"
+            data-aos-duration="1400"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 -960 960 960"
+              class="icon-large"
+              oncontextmenu="return false;"
+            >
+              <path
+                d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm320-280L160-640v400h640v-400L480-440Zm0-80 320-200H160l320 200ZM160-640v-80 480-400Z"
+              />
+            </svg>
+
+            <h6>Email</h6>
+
+            <p>
+              Send us an email
+              <a class="link--underline" href="mailto: symptochecker@gmail.com"
+                >symptochecker.com</a
+              >
+            </p>
+          </div>
+
+          <div
+            class="contact__item"
+            data-aos="fade-right"
+            data-aos-duration="1800"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 -960 960 960"
+              class="icon-large"
+              oncontextmenu="return false;"
+            >
+              <path
+                d="M777.614-140.001q-113.076 0-227.191-52.577-114.115-52.577-209.691-148.346-95.577-95.769-148.154-209.691-52.577-113.923-52.577-226.999 0-18.165 12-30.275t30-12.11h130.46q15.154 0 26.731 9.885 11.577 9.885 14.73 24.423L376.845-668q2.385 16.385-1 28.154-3.384 11.769-12.154 19.769l-92.384 89.923q22.308 40.846 50.962 77.269 28.654 36.424 62.038 69.578 32.924 32.923 70.001 61.154 37.077 28.231 80.077 52.538l89.769-90.538q9.385-9.769 22.731-13.692 13.346-3.923 27.731-1.923l111.075 22.615q15.154 4 24.731 15.461 9.577 11.462 9.577 26.001v129.69q0 18-12.11 30t-30.275 12ZM242.923-586.922l71.385-68.308q1.923-1.539 2.5-4.231.577-2.693-.192-5l-17.385-89.385q-.769-3.077-2.692-4.615-1.923-1.539-5-1.539H206q-2.307 0-3.846 1.539-1.539 1.538-1.539 3.846 3.077 41 13.423 83.308 10.347 42.308 28.885 84.385Zm347.999 345.691q39.77 18.539 82.962 28.347 43.193 9.807 80.731 11.653 2.308 0 3.846-1.538 1.539-1.539 1.539-3.847v-84.153q0-3.077-1.539-5.001-1.538-1.923-4.615-2.692l-84-17.077q-2.307-.769-4.038-.192-1.731.577-3.654 2.5l-71.232 72ZM242.923-586.922Zm347.999 345.691Z"
+              />
+            </svg>
+
+            <h6>Phone</h6>
+
+            <p>
+              Give us a call
+              <a class="link--underline" href="tel:+911000126186"
+                >+91&nbsp;1000126186</a
+              >
+            </p>
+          </div>
+
+          <div
+            class="contact__item"
+            data-aos-duration="2200"
+            data-aos="fade-right"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 -960 960 960"
+              class="icon-large"
+              oncontextmenu="return false;"
+            >
+              <path
+                d="M480-480q33 0 56.5-23.5T560-560q0-33-23.5-56.5T480-640q-33 0-56.5 23.5T400-560q0 33 23.5 56.5T480-480Zm0 294q122-112 181-203.5T720-552q0-109-69.5-178.5T480-800q-101 0-170.5 69.5T240-552q0 71 59 162.5T480-186Zm0 106Q319-217 239.5-334.5T160-552q0-150 96.5-239T480-880q127 0 223.5 89T800-552q0 100-79.5 217.5T480-80Zm0-480Z"
+              />
+            </svg>
+
+            <h6>Location</h6>
+
+            <a
+              href="https://www.google.com/maps/dir//Sharad+Institute+of+Technology+College+of+Engineering,+Ichalkaranji+(Kolhapur)+Gat+No.+525,+473%2FA+Yadrav,+Kolhapur+District+behind+Omkareshwar+Temple+Ichalkaranji,+Maharashtra+416115/@16.707997,74.4782375,16z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3bc11ded0475eadb:0x79f3c5079c954ace!2m2!1d74.4782281!2d16.707998?entry=ttu&g_ep=EgoyMDI0MDkxMC4wIKXMDSoASAFQAw%3D%3D"
+              id="getDirectionsLink"
+              class="link--underline"
+              onclick="showMap(event)"
+              >Get&nbsp;Directions&nbsp;<span class="chevron-right-translate-X"
+                >&#10095;</span
+              ></a
+            >
+          </div>
+        </div>
+
+        <div class="iframe">
+          <iframe
+            id="map"
+            allowfullscreen
+            frameborder="0"
+            height="100%"
+            loading="lazy"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3821.377676508828!2d74.47823749999996!3d16.70799700000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc11ded0475eadb%3A0x79f3c5079c954ace!2sSharad%20Institute%20of%20Technology%20College%20of%20Engineering%2C%20Ichalkaranji%20(Kolhapur)!5e0!3m2!1sen!2sin!4v1726220804190!5m2!1sen!2sin"
+            width="100%"
+          >
+          </iframe>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer  -->
+<footer class="footer container">
+  <div class="footer__nav">
+    <img
+      class="footer__logo"
+      src="{{ url_for('static', filename='css/images/svg/logo.svg') }}"
+      alt=""
+      oncontextmenu="return false;"
+    />
+
+    <ul class="list footer__list">
+      <li class="footer__item">
+        <a href="{{ url_for('about_us') }}">About</a>
+      </li>
+      <li class="footer__item"><a href="#faq">FAQs</a></li>
+      <li class="footer__item">
+        <a href="{{ url_for('about_us') }}">Learn More</a>
+      </li>
+    </ul>
+
+    <div class="social-media">
+      <a href="">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          viewBox="0 0 30 30"
+          class="icon-medium"
+          oncontextmenu="return false;"
+        >
+          <path
+            d="M15,3C8.373,3,3,8.373,3,15c0,6.016,4.432,10.984,10.206,11.852V18.18h-2.969v-3.154h2.969v-2.099c0-3.475,1.693-5,4.581-5c1.383,0,2.115,0.103,2.461,0.149v2.753h-1.97c-1.226,0-1.654,1.163-1.654,2.473v1.724h3.593L19.73,18.18h-3.106v8.697C22.481,26.083,27,21.075,27,15C27,8.373,21.627,3,15,3z"
+          />
+        </svg>
+      </a>
+
+      <a href="">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 30 30"
+          class="icon-medium"
+          oncontextmenu="return false;"
+        >
+          <path
+            d="M26.37,26l-8.795-12.822l0.015,0.012L25.52,4h-2.65l-6.46,7.48L11.28,4H4.33l8.211,11.971L12.54,15.97L3.88,26h2.65 l7.182-8.322L19.42,26H26.37z M10.23,6l12.34,18h-2.1L8.12,6H10.23z"
+          />
+        </svg>
+      </a>
+
+      <a href="">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 50 50"
+          class="icon-medium"
+          oncontextmenu="return false;"
+        >
+          <path
+            d="M41,4H9C6.24,4,4,6.24,4,9v32c0,2.76,2.24,5,5,5h32c2.76,0,5-2.24,5-5V9C46,6.24,43.76,4,41,4z M17,20v19h-6V20H17z M11,14.47c0-1.4,1.2-2.47,3-2.47s2.93,1.07,3,2.47c0,1.4-1.12,2.53-3,2.53C12.2,17,11,15.87,11,14.47z M39,39h-6c0,0,0-9.26,0-10 c0-2-1-4-3.5-4.04h-0.08C27,24.96,26,27.02,26,29c0,0.91,0,10,0,10h-6V20h6v2.56c0,0,1.93-2.56,5.81-2.56 c3.97,0,7.19,2.73,7.19,8.26V39z"
+          />
+        </svg>
+      </a>
+    </div>
+  </div>
+
+  <div class="copyright grid grid--1x2 grid--align-Y grid--align-X">
+    <p class="copyright__content">
+      &copy;&#50;&#48;&#50;&#52; symptochecker.com. All rights reserved.
+    </p>
+
+    <ul class="list">
+      <li class="footer__item">
+        <a href="{{ url_for('privacy_and_cookies_policy') }}">Privacy Policy</a>
+      </li>
+
+      <li class="footer__item">
+        <a href="{{ url_for('tc') }}">Terms and Conditions</a>
+      </li>
+
+      <li class="footer__item">
+        <a href="{{ url_for('privacy_and_cookies_policy') }}">Cookie Policy</a>
+      </li>
+    </ul>
+  </div>
+</footer>

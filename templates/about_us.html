@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/normalize.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <title>About Us</title>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="{{ url_for('static', filename='javascript/main.js') }}" defer></script>
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <header class="container">
+      <nav class="nav-bar collapsible">
+        <a class="nav__logo" href="#">
+          <img
+            src="{{ url_for('static', filename='css/images/svg/logo.svg') }}"
+            alt=""
+            oncontextmenu="return false;"
+          />
+        </a>
+
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 50 50"
+          class="nav__toggler toggler icon-large"
+          oncontextmenu="return false;"
+        >
+          <path
+            d="M 0 7.5 L 0 12.5 L 50 12.5 L 50 7.5 Z M 0 22.5 L 0 27.5 L 50 27.5 L 50 22.5 Z M 0 37.5 L 0 42.5 L 50 42.5 L 50 37.5 Z"
+          />
+        </svg>
+
+        <ul class="list nav__list collapsible__content">
+          <li><a class="nav__link" href="{{ url_for('index') }}">Home</a></li>
+          <li>
+            <a class="nav__link" href="{{ url_for('index') }}#contact">Contact</a>
+          </li>
+          <li>
+            <a class="nav__link" href="{{ url_for('index') }}#faq">FAQs</a>
+          </li>
+
+          <li class="drop-down">
+            <div class="nav__link text-wrap" id="dropdownToggle">
+              More<span class="chevron-bottom text-wrap">&#9660;</span>
+            </div>
+
+            <div class="drop-down__menu">
+              <ul class="list nav__list">
+                <li>
+                  <a class="nav__link" href="{{ url_for('prevention') }}">Prevention&nbsp;Tips</a>
+                </li>
+                <li>
+                  <a class="nav__link" href="{{ url_for('treatment') }}">Treatment&nbsp;Options</a>
+                </li>
+                <li>
+                  <a class="nav__link" href="{{ url_for('learn_more') }}">Learn&nbsp;More</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Hero -->
+    <header class="card container">
+      <section class="about-us grid grid--1x2 grid--align-Y">
+        <div class="about-us__content">
+          <h1>About Us</h1>
+          <p class="about-us__tagline">Welcome to Fowl Disease Detection!</p>
+
+          <article>
+            <p>
+              We are a team of four final-year Computer Science and Engineering
+              students dedicated to improving poultry health through innovative
+              technology. Our mission is to empower poultry owners with an
+              easy-to-use web platform for detecting diseases in hens based on
+              their symptoms, enhancing flock well-being and supporting farmers.
+            </p>
+          </article>
+
+          <button
+            class="btn btn--log-in"
+            onclick="window.location.href='{{ url_for('symptom_form') }}'"
+          >
+            Get Started
+          </button>
+        </div>
+
+        <img
+          src="{{ url_for('static', filename='css/images/svg/about_us.svg') }}"
+          alt=""
+          oncontextmenu="return false;"
+        />
+      </section>
+    </header>
+
+    <!-- Our Values -->
+    <div class="value-container container card">
+      <section class="value">
+        <h2>Our Values</h2>
+
+        <div class="value__content grid grid--1x3">
+          <div class="value__item">
+            <section>
+              <h4>Compassion</h4>
+              <p>
+                The health of animals is at the heart of our project, and we
+                strive to provide effective solutions.
+              </p>
+            </section>
+
+            <img
+              src="{{ url_for('static', filename='css/images/svg/compassion.svg') }}"
+              alt=""
+              class="value__img"
+            />
+          </div>
+
+          <div class="value__item">
+            <section>
+              <h4>Innovation</h4>
+              <p>
+                We believe in leveraging technology to solve real-world
+                problems.
+              </p>
+            </section>
+
+            <img
+              src="{{ url_for('static', filename='css/images/svg/innovation.svg') }}"
+              alt=""
+              class="value__img"
+            />
+          </div>
+
+          <div class="value__item">
+            <section>
+              <h4>Collaboration</h4>
+              <p>
+                Working together as a team and with our future users is key to
+                our success.
+              </p>
+            </section>
+
+            <img
+              src="{{ url_for('static', filename='css/images/svg/team-work.svg') }}"
+              alt=""
+              class="value__img"
+              oncontextmenu="return false;"
+            />
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Inspiration -->
+    <div class="inspire card container grid grid--1x2">
+      <img
+        class="inspire-img"
+        src="{{ url_for('static', filename='css/images/svg/our_inspiration.svg') }}"
+        alt=""
+        oncontextmenu="return false;"
+      />
+
+      <section class="inspire__background">
+        <div class="inspire__content">
+          <h2 class="inspire__tag">Our Inspiration</h2>
+
+          <article>
+            <p class="inspire__text">
+              Noticing a lack of accessible resources for poultry owners facing
+              health issues, we combined our passion for technology and animal
+              health to create a solution. Our commitment is to make poultry
+              farming more efficient and sustainable.
+            </p>
+          </article>
+        </div>
+      </section>
+    </div>
+
+    <!-- Team Section -->
+    <section class="team container card">
+      <h2 class="team__heading">Meet Our Teem</h2>
+
+      <div class="quote-section">
+        <blockquote>
+          <p class="quote">
+            The only way to do great work is to love what you do, and who you do
+            it with.
+          </p>
+          <footer>
+            &#8210; When friends are your teammates, passion and joy fuel your
+            work.
+          </footer>
+        </blockquote>
+      </div>
+
+      <div class="grid grid--1x3">
+        <!-- Team Member 1: Prajot Kumbhar -->
+        <div class="team__content team__content--last grid">
+          <div class="team__details">
+            <div class="team__member member__1"></div>
+            <section>
+              <h5 class="member__name">Prajot Kumbhar</h5>
+              <p class="member__role">Backend Technology</p>
+            </section>
+          </div>
+
+          <h5 class="member__bio">Bio &#8275;</h5>
+
+          <article>
+            <p class="member__bio-content">
+              Hi, I'm Prajot! I specialize in backend development, where I focus
+              on building efficient and scalable systems. I love working with
+              server-side technologies and crafting solutions that power
+              seamless user experiences. My background includes a lot of work
+              with databases, APIs, and optimizing system performance. In my
+              free time, I enjoy diving into cloud technologies and keeping up
+              with the latest in backend frameworks and containerization.
+            </p>
+          </article>
+
+          <div class="member__account">
+            <a
+              href="https://www.linkedin.com/in/prajotkumbhar04?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+              target="_blank"
+              class="member__account-link"
+            >
+              Follow me on LinkedIn&nbsp;<span class="chevron-right-translate-X"
+                >&#10095;</span
+              >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 50 50"
+                class="icon-medium"
+              >
+                <path
+                  d="M41,4H9C6.24,4,4,6.24,4,9v32c0,2.76,2.24,5,5,5h32c2.76,0,5-2.24,5-5V9C46,6.24,43.76,4,41,4z M17,20v19h-6V20H17z M11,14.47c0-1.4,1.2-2.47,3-2.47s2.93,1.07,3,2.47c0,1.4-1.12,2.53-3,2.53C12.2,17,11,15.87,11,14.47z M39,39h-6c0,0,0-9.26,0-10 c0-2-1-4-3.5-4.04h-0.08C27,24.96,26,27.02,26,29c0,0.91,0,10,0,10h-6V20h6v2.56c0,0,1.93-2.56,5.81-2.56 c3.97,0,7.19,2.73,7.19,8.26V39z"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Team Member 2: Prathamesh Chavan -->
+        <div class="team__content team__content--last grid">
+          <div class="team__details">
+            <div class="team__member member__2"></div>
+            <section>
+              <h5 class="member__name">Prathamesh Chavan</h5>
+              <p class="member__role">Machine Learning Expert</p>
+            </section>
+          </div>
+
+          <h5 class="member__bio">Bio &#8275;</h5>
+          <article>
+            <p class="member__bio-content">
+              Hey, I'm Prathamesh, your go-to guy for all things machine
+              learning! I have a passion for turning complex data into smart,
+              actionable insights. My expertise lies in building intelligent
+              models, working with natural language processing, and tackling
+              problems in computer vision. I'm always excited to explore the
+              latest developments in AI and machine learning, and outside of
+              work, I like to think about the ethical implications of AI as well
+              as its potential to shape the future.
+            </p>
+          </article>
+
+          <div class="member__account">
+            <a
+              href="http://www.linkedin.com/in/prathmesh-chavan-7478b325b"
+              target="_blank"
+              class="member__account-link"
+            >
+              Follow me on LinkedIn&nbsp;<span class="chevron-right-translate-X"
+                >&#10095;</span
+              >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 50 50"
+                class="icon-medium"
+              >
+                <path
+                  d="M41,4H9C6.24,4,4,6.24,4,9v32c0,2.76,2.24,5,5,5h32c2.76,0,5-2.24,5-5V9C46,6.24,43.76,4,41,4z M17,20v19h-6V20H17z M11,14.47c0-1.4,1.2-2.47,3-2.47s2.93,1.07,3,2.47c0,1.4-1.12,2.53-3,2.53C12.2,17,11,15.87,11,14.47z M39,39h-6c0,0,0-9.26,0-10 c0-2-1-4-3.5-4.04h-0.08C27,24.96,26,27.02,26,29c0,0.91,0,10,0,10h-6V20h6v2.56c0,0,1.93-2.56,5.81-2.56 c3.97,0,7.19,2.73,7.19,8.26V39z"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Team Member 3: Pratik Mane -->
+        <div class="team__content team__content--last grid">
+          <div class="team__details">
+            <div class="team__member member__3"></div>
+            <section>
+              <h5 class="member__name">Pratik Mane</h5>
+              <p class="member__role">Frontend Developer</p>
+            </section>
+          </div>
+
+          <h5 class="member__bio">Bio &#8275;</h5>
+          <article>
+            <p class="member__bio-content">
+              Hi, I'm Pratik, and I'm all about creating great user experiences!
+              As a frontend developer, I enjoy bringing designs to life and
+              making sure that web applications are both functional and visually
+              engaging. I work with technologies like HTML, CSS, JavaScript, and
+              frameworks like React, ensuring that everything works smoothly on
+              any device. When I'm not coding, I love staying updated on the
+              latest web design trends that push the boundaries of user
+              interaction.
+            </p>
+          </article>
+
+          <div class="member__account">
+            <a
+              href="https://www.linkedin.com/in/pratik-mane-4a1b3b29a/"
+              target="_blank"
+              class="member__account-link"
+            >
+              Follow me on LinkedIn&nbsp;<span class="chevron-right-translate-X"
+                >&#10095;</span
+              >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 50 50"
+                class="icon-medium"
+              >
+                <path
+                  d="M41,4H9C6.24,4,4,6.24,4,9v32c0,2.76,2.24,5,5,5h32c2.76,0,5-2.24,5-5V9C46,6.24,43.76,4,41,4z M17,20v19h-6V20H17z M11,14.47c0-1.4,1.2-2.47,3-2.47s2.93,1.07,3,2.47c0,1.4-1.12,2.53-3,2.53C12.2,17,11,15.87,11,14.47z M39,39h-6c0,0,0-9.26,0-10 c0-2-1-4-3.5-4.04h-0.08C27,24.96,26,27.02,26,29c0,0.91,0,10,0,10h-6V20h6v2.56c0,0,1.93-2.56,5.81-2.56 c3.97,0,7.19,2.73,7.19,8.26V39z"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Our Service -->
+    <div class="container card grid grid--1x2">
+      <section class="offer">
+        <div class="offer-header">
+          <h2>What We Offer</h2>
+        </div>
+        <article>
+          <p>
+            Our platform allows poultry owners to input symptoms observed in
+            their hens and receive immediate suggestions for potential diseases
+            and remedies. By providing this vital information, we aim to reduce
+            the time and stress associated with disease management in poultry
+            farming.
+          </p>
+          <button
+            class="btn btn--secondary"
+            onclick="window.location.href='{{ url_for('learn_more') }}'"
+          >
+            Learn More <span class="chevron-right-translate-X">&#10095;</span>
+          </button>
+        </article>
+      </section>
+
+      <section class="impact">
+        <div class="impact-header">
+          <h2>Community Impact</h2>
+        </div>
+        <article>
+          <p>
+            We understand the importance of healthy livestock to both farmers
+            and communities. Our project not only seeks to enhance poultry
+            health but also to contribute to sustainable farming practices that
+            benefit everyone. Thank you for visiting our page! We're excited to
+            share our project with you, and we look forward to helping poultry
+            owners keep their hens healthy. If you'd like to learn more or get
+            involved, feel free to reach out!
+          </p>
+        </article>
+
+        <button
+          class="btn btn--log-in"
+          onclick="window.location.href='{{ url_for('symptom_form') }}'"
+        >
+          Get Started
+        </button>
+      </section>
+    </div>
+
+    <!-- Footer  -->
+    <footer class="footer container">
+  <div class="footer__nav">
+    <img
+      src="{{ url_for('static', filename='css/images/svg/logo.svg') }}"
+      alt=""
+      class="footer__logo"
+      oncontextmenu="return false;"
+    />
+        <ul class="list footer__list">
+          <li class="footer__item">
+            <a href="{{ url_for('index') }}">Home</a>
+          </li>
+
+          <li class="footer__item">
+            <a href="{{ url_for('index') }}#contact">Contact us</a>
+          </li>
+
+          <li class="footer__item">
+            <a href="{{ url_for('index') }}#faq">FAQs</a>
+          </li>
+          <li class="footer__item">
+            <a href="{{ url_for('learn_more') }}" class="text-wrap"
+              >Learn More</a
+            >
+          </li>
+
+          <!-- <li class="footer__item"><a href="">Support</a></li> -->
+        </ul>
+
+        <div class="social-media">
+          <a href="">
+            <?xml version="1.0" encoding="iso-8859-1"?><!-- Generator: Adobe Illustrator 23.0.3, SVG Export Plug-In . SVG Version: 6.00 Build 0)  --><svg
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              viewBox="0 0 30 30"
+              class="icon-medium"
+              oncontextmenu="return false;"
+            >
+              <path
+                d="M15,3C8.373,3,3,8.373,3,15c0,6.016,4.432,10.984,10.206,11.852V18.18h-2.969v-3.154h2.969v-2.099c0-3.475,1.693-5,4.581-5c1.383,0,2.115,0.103,2.461,0.149v2.753h-1.97c-1.226,0-1.654,1.163-1.654,2.473v1.724h3.593L19.73,18.18h-3.106v8.697C22.481,26.083,27,21.075,27,15C27,8.373,21.627,3,15,3z"
+              />
+            </svg>
+          </a>
+
+          <a href="">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 30 30"
+              class="icon-medium"
+              oncontextmenu="return false;"
+            >
+              <path
+                d="M26.37,26l-8.795-12.822l0.015,0.012L25.52,4h-2.65l-6.46,7.48L11.28,4H4.33l8.211,11.971L12.54,15.97L3.88,26h2.65 l7.182-8.322L19.42,26H26.37z M10.23,6l12.34,18h-2.1L8.12,6H10.23z"
+              />
+            </svg>
+          </a>
+
+          <a href="">
+            <?xml version="1.0"?><svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 50 50"
+              class="icon-medium"
+              oncontextmenu="return false;"
+            >
+              <path
+                d="M41,4H9C6.24,4,4,6.24,4,9v32c0,2.76,2.24,5,5,5h32c2.76,0,5-2.24,5-5V9C46,6.24,43.76,4,41,4z M17,20v19h-6V20H17z M11,14.47c0-1.4,1.2-2.47,3-2.47s2.93,1.07,3,2.47c0,1.4-1.12,2.53-3,2.53C12.2,17,11,15.87,11,14.47z M39,39h-6c0,0,0-9.26,0-10 c0-2-1-4-3.5-4.04h-0.08C27,24.96,26,27.02,26,29c0,0.91,0,10,0,10h-6V20h6v2.56c0,0,1.93-2.56,5.81-2.56 c3.97,0,7.19,2.73,7.19,8.26V39z"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="copyright grid grid--1x2 grid--align-Y grid--align-X">
+        <p class="copyright__content">
+          &copy;&#50;&#48;&#50;&#52; symptochecker.com. All rights reserved.
+        </p>
+
+        <ul class="list">
+          <li class="footer__item">
+            <a href="{{ url_for('privacy_and_cookies_policy') }}"
+              >Privacy Policy</a
+            >
+          </li>
+
+          <li class="footer__item">
+            <a href="{{ url_for('tc') }}">Terms and Conditions</a>
+          </li>
+
+          <li class="footer__item">
+            <a
+              href="{{ url_for('privacy_and_cookies_policy') }}"
+              >Cookie Policy</a
+            >
+          </li>
+        </ul>
+      </div>
+    </footer>
+  </body>
+</html>

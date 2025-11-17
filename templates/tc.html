@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/normalize.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
+
+    <title>T&C</title>
+
+    <script src="{{ url_for('static', filename='javascript/main.js') }}"></script>
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <header class="container">
+      <nav class="nav-bar collapsible">
+        <img
+          src="{{ url_for('static', filename='css/images/svg/logo.svg') }}"
+          alt=""
+          oncontextmenu="return false;"
+        />
+
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 50 50"
+          class="nav__toggler toggler icon-large"
+          oncontextmenu="return false;"
+        >
+          <path
+            d="M 0 7.5 L 0 12.5 L 50 12.5 L 50 7.5 Z M 0 22.5 L 0 27.5 L 50 27.5 L 50 22.5 Z M 0 37.5 L 0 42.5 L 50 42.5 L 50 37.5 Z"
+          />
+        </svg>
+
+        <ul class="list nav__list collapsible__content">
+          <li>
+            <a class="nav__link" href="{{ url_for('index') }}">Home</a>
+          </li>
+          <li>
+            <a class="nav__link" href="{{ url_for('about_us') }}">About</a>
+          </li>
+          <li><a class="nav__link" href="{{ url_for('index') }}#contact">Contact</a></li>
+          <li><a class="nav__link" href="{{ url_for('index') }}#faq">FAQs</a></li>
+
+          <li class="drop-down">
+            <div class="nav__link text-wrap" id="dropdownToggle">
+              More<span class="chevron-bottom text-wrap">&#9660;</span>
+            </div>
+
+            <div class="drop-down__menu">
+              <ul class="list nav__list">
+                <li>
+                  <a class="nav__link" href="{{ url_for('prevention') }}">Prevention&nbsp;Tips</a>
+                </li>
+                <li>
+                  <a class="nav__link" href="{{ url_for('treatment') }}">Treatment&nbsp;Options</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Terms and Conditions -->
+    <section class="terms-condition container card">
+      <h2>
+        Terms and Conditions of <span class="looking">Sympto</span
+        ><span class="head-logo2">Checker</span>
+      </h2>
+      <p><strong>Effective Date: 2024/10/04</strong></p>
+
+      <ol class="terms-condition__list">
+        <li class="terms-condition__list-item">
+          <strong>Disclaimer:</strong>
+          <ol class="list">
+            <li class="list__style">
+              <strong>No Medical Advice:</strong> This website is intended for
+              informational purposes only and does not constitute medical
+              advice. It is essential to consult a qualified veterinarian for
+              any health concerns related to your fowl.
+            </li>
+            <li class="list__style">
+              <strong>Accuracy of Predictions:</strong> While the machine
+              learning model is designed to provide predictions based on the
+              input symptoms, there is no guarantee of 100% accuracy. The
+              website's predictions should be used as a preliminary assessment
+              and not as a definitive diagnosis.
+            </li>
+            <li class="list__style">
+              <strong>No Liability:</strong> The website owners and operators
+              are not responsible for any adverse outcomes or consequences
+              arising from the use or reliance on the information provided by
+              this website, including but not limited to incorrect disease
+              predictions or inaccurate first aid remedies.
+            </li>
+          </ol>
+        </li>
+
+        <li class="terms-condition__list-item">
+          <strong>User Conduct:</strong>
+          <ol class="list">
+            <li class="list__style">
+              <strong>Proper Use:</strong> Users agree to use the website in a
+              responsible and ethical manner, adhering to all applicable laws
+              and regulations.
+            </li>
+            <li class="list__style">
+              <strong>No Misinformation:</strong> Users are prohibited from
+              providing false or misleading information about their fowl's
+              symptoms.
+            </li>
+            <li class="list__style">
+              <strong>Data Privacy:</strong> Users understand that their
+              personal information and fowl data may be collected and processed
+              in accordance with the website's privacy policy.
+            </li>
+          </ol>
+        </li>
+
+        <li class="terms-condition__list-item">
+          <strong>Website Content:</strong>
+          <ol class="list">
+            <li class="list__style">
+              <strong>First Aid Remedies:</strong> The website provides general
+              first aid remedies for common fowl diseases. These remedies are
+              not intended to replace professional veterinary care.
+            </li>
+            <li class="list__style">
+              <strong>Accuracy of Information:</strong> While we strive to
+              ensure the accuracy of the information provided, we cannot
+              guarantee its completeness or reliability.
+            </li>
+            <li class="list__style">
+              <strong>Modifications:</strong> The website owners reserve the
+              right to modify or remove any content at any time without notice.
+            </li>
+          </ol>
+        </li>
+
+        <li class="terms-condition__list-item">
+          <strong>Intellectual Property:</strong>
+          <ol class="list">
+            <li class="list__style">
+              <strong>Copyright:</strong> All content on the website, including
+              the machine learning model, is protected by copyright laws.
+            </li>
+            <li class="list__style">
+              <strong>Unauthorized Use:</strong> Users are prohibited from
+              copying, reproducing, or distributing any content from the website
+              without prior written permission.
+            </li>
+          </ol>
+        </li>
+
+        <li class="terms-condition__list-item">
+          <strong>Governing Law:</strong>
+
+          <ol class="list">
+            <li class="terms-condition__list-item">
+              <p>
+                These terms and conditions shall be governed by and construed in
+                accordance with the laws of India.
+              </p>
+            </li>
+          </ol>
+        </li>
+
+        <li class="terms-condition__list-item">
+          <strong>Dispute Resolution:</strong>
+          <ol class="list">
+            <li class="terms-condition__list-item">
+              <p>
+                Any disputes arising from these terms and conditions shall be
+                resolved through arbitration in accordance with the Arbitration
+                and Conciliation Act, 1996. The arbitration shall be conducted
+                in Mumbai, India, and the language of the arbitration shall be
+                English. The decision of the arbitrator(s) shall be final and
+                binding on the parties.
+              </p>
+            </li>
+          </ol>
+        </li>
+
+        <li class="terms-condition__list-item">
+          <strong>Severability:</strong>
+          <ol class="list">
+            <li class="list__style">
+              <strong>Invalid Provisions:</strong> If any provision of these
+              terms and conditions is found to be invalid or unenforceable, the
+              remaining provisions shall remain in full force and effect.
+            </li>
+          </ol>
+        </li>
+      </ol>
+
+      <p class="terms-condition__aggre">
+        By using this website, you agree to be bound by these terms and
+        conditions.
+      </p>
+    </section>
+
+    <!-- Footer  -->
+    <footer class="footer container">
+      <div class="footer__nav">
+        <img
+          class="footer__logo"
+          src="{{ url_for('static', filename='css/images/svg/logo.svg') }}"
+          alt=""
+          oncontextmenu="return false;"
+        />
+
+        <ul class="list footer__list">
+          <li class="footer__item">
+            <a href="{{ url_for('about_us') }}">About</a>
+          </li>
+          <li class="footer__item"><a href="{{ url_for('index') }}#contact">Contact us</a></li>
+          <li class="footer__item"><a href="{{ url_for('index') }}#faq">FAQs</a></li>
+          <li class="footer__item">
+            <a href="{{ url_for('learn_more') }}">Learn More</a>
+          </li>
+        </ul>
+
+        <div class="social-media">
+          <a href="">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 30 30"
+              class="icon-medium"
+              oncontextmenu="return false;"
+            >
+              <path
+                d="M15,3C8.373,3,3,8.373,3,15c0,6.016,4.432,10.984,10.206,11.852V18.18h-2.969v-3.154h2.969v-2.099c0-3.475,1.693-5,4.581-5c1.383,0,2.115,0.103,2.461,0.149v2.753h-1.97c-1.226,0-1.654,1.163-1.654,2.473v1.724h3.593L19.73,18.18h-3.106v8.697C22.481,26.083,27,21.075,27,15C27,8.373,21.627,3,15,3z"
+              />
+            </svg>
+          </a>
+
+          <a href="">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 30 30"
+              class="icon-medium"
+              oncontextmenu="return false;"
+            >
+              <path
+                d="M26.37,26l-8.795-12.822l0.015,0.012L25.52,4h-2.65l-6.46,7.48L11.28,4H4.33l8.211,11.971L12.54,15.97L3.88,26h2.65 l7.182-8.322L19.42,26H26.37z M10.23,6l12.34,18h-2.1L8.12,6H10.23z"
+              />
+            </svg>
+          </a>
+
+          <a href="">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 50 50"
+              class="icon-medium"
+              oncontextmenu="return false;"
+            >
+              <path
+                d="M41,4H9C6.24,4,4,6.24,4,9v32c0,2.76,2.24,5,5,5h32c2.76,0,5-2.24,5-5V9C46,6.24,43.76,4,41,4z M17,20v19h-6V20H17z M11,14.47c0-1.4,1.2-2.47,3-2.47s2.93,1.07,3,2.47c0,1.4-1.12,2.53-3,2.53C12.2,17,11,15.87,11,14.47z M39,39h-6c0,0,0-9.26,0-10 c0-2-1-4-3.5-4.04h-0.08C27,24.96,26,27.02,26,29c0,0.91,0,10,0,10h-6V20h6v2.56c0,0,1.93-2.56,5.81-2.56 c3.97,0,7.19,2.73,7.19,8.26V39z"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="copyright grid grid--1x2 grid--align-Y grid--align-X">
+        <p class="copyright__content">
+          &copy;&#50;&#48;&#50;&#52; symptochecker.com. All rights reserved.
+        </p>
+
+        <ul class="list">
+          <li class="footer__item">
+            <a href="{{ url_for('privacy_and_cookies_policy') }}">Privacy Policy</a>
+          </li>
+          <li class="footer__item">
+            <a href="{{ url_for('privacy_and_cookies_policy', _anchor='cookie-policy') }}">Cookie Policy</a>
+          </li>
+        </ul>
+      </div>
+    </footer>
+  </body>
+</html>
